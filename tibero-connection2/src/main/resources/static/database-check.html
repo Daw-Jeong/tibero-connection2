@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Database Connection Check</title>
+</head>
+<body>
+<h1>Database Connection Status</h1>
+<p id="database-status">Checking...</p>
+<script>
+  fetch('/database-check')
+          .then(response => response.text())
+          .then(text => document.getElementById('database-status').innerText = text)
+          .catch(err => document.getElementById('database-status').innerText = 'Failed to check: ' + err);
+</script>
+</body>
+</html>
